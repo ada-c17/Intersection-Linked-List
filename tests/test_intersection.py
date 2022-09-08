@@ -1,5 +1,23 @@
+from tkinter import PROJECTING
+from turtle import setundobuffer
 import pytest
 from linked_lists.intersection import *
+
+
+WHAT DOCUMENTS DO THEY WANT TO HAVE FOR YOUR GOALS
+WHAT PAPERWORK
+SET GOALS WITH MANAGER! LIST OF EXPECTATIONS!
+LEVELING GUIDE?
+END OF WEEK 2!
+
+MONDAY!!!
+BRING UP TO DANIEL CHAN TO PUT ON THEIR RADAR
+CHECKBOX ALL POINTS WITH MANAGER CHAT, NOT JUST PROJECT
+
+
+PROJECT
+HOW TO GET HELP WITH ORACLE SPECIFIC setundobuffer
+HOW TO GET CODE REVIEW
 
 
 def test_will_return_intersection_for_lists_of_same_length():
