@@ -152,3 +152,86 @@ def test_will_return_none_nodes_have_same_value_different_reference():
 
     #Assert
     assert answer is None
+
+
+## NOTE: I added two tests for the example from the README. Could I please get feedback on them and whether
+# they are set up properly to test the example from the README? Thanks in advance!
+# For example, the following two linked lists begin to intersect at 5.
+# linked_list_a: 3 -> 4 -> 5 -> 6 -> 7
+
+# linked_list_b: 1 -> 2 -> 5 -> 6 -> 7
+
+# The following two linked lists do not intersect at all because while the node with value 5 is in the same place, the subsequent nodes are different.
+# linked_list_a: 3 -> 4 -> 5 -> 6 -> 7
+
+# linked_list_b: 1 -> 2 -> 5 -> 4 -> 3
+def test_will_return_none_subsequent_nodes_are_different():
+    #Arrange
+    node_d1 = Node(3)
+    node_e1 = Node(4)
+    node_f1 = Node(5)
+    node_g1 = Node(6)
+    node_h1 = Node(7)
+
+    node_c1 = Node(1)
+    node_e2 = Node(2)
+    node_f2 = Node(5)
+    node_g2 = Node(4)
+    node_h2 = Node(3)
+
+    #List A: [3, 4, 5, 6, 7]
+    node_d1.next = node_e1
+    node_e1.next = node_f1
+    node_f1.next = node_g1
+    node_g1.next = node_h1
+
+    #List B: [1, 2, 5, 4, 3]
+    node_c1.next = node_e2
+    node_e2.next = node_f2 # changing node_f2 to node_f1 (5) here causes the test to fail
+    node_f2.next = node_g2
+    node_g2.next = node_h2
+
+    head_a = node_d1
+    head_b = node_c1
+
+    #Act
+    answer = intersection_node(head_a, head_b)
+
+    #Assert
+    assert answer is None
+
+
+def test_will_return_intersection():
+    #Arrange
+    node_d1 = Node(3)
+    node_e1 = Node(4)
+    node_f1 = Node(5)
+    node_g1 = Node(6)
+    node_h1 = Node(7)
+
+    node_c1 = Node(1)
+    node_e2 = Node(2)
+    # node_f2 = Node(5)
+    # node_g2 = Node(6)
+    # node_h2 = Node(7) test still passes with these 3 lines removed
+
+    #List A: [3, 4, 5, 6, 7]
+    node_d1.next = node_e1
+    node_e1.next = node_f1
+    node_f1.next = node_g1
+    node_g1.next = node_h1
+
+    #List B: [1, 2, 5, 6, 7]
+    node_c1.next = node_e2
+    node_e2.next = node_f1
+    # node_f2.next = node_g2
+    # node_g2.next = node_h2 test still passes with these removed
+
+    head_a = node_d1
+    head_b = node_c1
+
+    #Act
+    answer = intersection_node(head_a, head_b)
+
+    #Assert
+    assert answer is node_f1
