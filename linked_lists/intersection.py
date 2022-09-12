@@ -36,19 +36,13 @@ def intersection_node(headA, headB):
             headB = headB.next
             move -= 1
     
-    node_intersection = []
-    keep_going = True
-    while keep_going:
+    while headA:
         if headA != headB:
             headA = headA.next
             headB = headB.next
-            node_intersection = []
         elif headA == headB:
-            node_intersection.append(headA)
-            keep_going = False
+            node_intersection = headA
+            return node_intersection
     
-    if not node_intersection:
-        return None
-    return node_intersection[0]
-
+    return None
     
