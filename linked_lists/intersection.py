@@ -10,8 +10,6 @@ def intersection_node(headA, headB):
     if not headA or not headB:
         return None
 
-    listA = []
-    listB = []
     currentA = headA
     currentB = headB
 
