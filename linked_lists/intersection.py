@@ -32,7 +32,7 @@ def intersection_node(headA, headB):
 
 def check_match(currentA, currentB):
     while currentA and currentB:
-        if currentA.val == currentB.val and currentA.next == currentB.next:
+        if currentA.next == currentB.next:
             currentA = currentA.next
             currentB = currentB.next
             match= True
