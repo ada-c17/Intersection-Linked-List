@@ -34,6 +34,8 @@ ll2.add_first(4)
 
 headB = ll2.getHead()
 
+
+
 #get lenth of linked list
 def get_lin_list_len(head):
     list_len=0
@@ -57,6 +59,7 @@ def intersection_node(headA, headB):
     long_list=None
 
     difference=0
+    # node_number=0
     
     # finding which list is longer and calculating the difference 
     if len_headA>len_headB:
@@ -72,14 +75,17 @@ def intersection_node(headA, headB):
     while difference>0:
         long_list=long_list.next
         difference-=1
+        # node_number+=1
     
     # looping over lists until they have the same value and returning the value if they intersect
-    while long_list!=None and short_list!=None and long_list.val!=short_list.val:
+    while long_list!=None and short_list!=None and long_list is not short_list:
         long_list=long_list.next
         short_list=short_list.next
+        # node_number+=1
 
     if  long_list!=None:
-        return long_list.val
+        # return node_number
+        return long_list
     else:
         return None 
  
@@ -94,4 +100,5 @@ print(intersection_node(headA, headB))
 print("---------------")
 printLinkList (headA)
 printLinkList(headB)
+print("---------------")
 print("---------------")
