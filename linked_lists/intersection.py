@@ -1,40 +1,55 @@
 
+from os import curdir
+
+
 class Node:
     def __init__(self, value):
         self.val = value
         self.next = None
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
 
-    # method to add more nodes to linked list
-    def add_first(self, value):
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
+#     # method to add more nodes to linked list
+#     def add_first(self, value):
+#         new_node = Node(value)
+#         new_node.next = self.head
+#         self.head = new_node
+    
 
-    # method to return head of linked list
-    def getHead(self):
-        return self.head
+#     # method to return head of linked list
+#     def getHead(self):
+#         return self.head
+    
+#     def getNthNode(self, n):
+#         current = self.head
+#         while(current != None and n > 0):
+#             current = current.next
+#             n -=1;
+        
+#         return current
 
 #adding nodes to both lists
-ll1 = LinkedList()
-ll1.add_first(6)
-ll1.add_first(3)
-ll1.add_first(2)
-ll1.add_first(1)
+node_d1 = Node("D")
+node_e1 = Node("E")
+node_f1 = Node("F")
 
-headA = ll1.getHead()
+node_c1 = Node("C")
+node_e2 = Node("E")
+node_f2 = Node("F")
 
-ll2 = LinkedList()
-ll2.add_first(6)
-ll2.add_first(5)
-ll2.add_first(4)
+#List A: [d, e1, f1]
+node_d1.next = node_e1
+node_e1.next = node_f1
 
-headB = ll2.getHead()
+#List B: [c, e2, f2]
+node_c1.next = node_e2
+node_e2.next = node_f2
+node_f2.next = node_e1
 
-
+head_a = node_d1
+head_b = node_c1
 
 #get lenth of linked list
 def get_lin_list_len(head):
@@ -59,7 +74,7 @@ def intersection_node(headA, headB):
     long_list=None
 
     difference=0
-    # node_number=0
+    
     
     # finding which list is longer and calculating the difference 
     if len_headA>len_headB:
@@ -75,20 +90,19 @@ def intersection_node(headA, headB):
     while difference>0:
         long_list=long_list.next
         difference-=1
-        # node_number+=1
+
     
     # looping over lists until they have the same value and returning the value if they intersect
     while long_list!=None and short_list!=None and long_list is not short_list:
         long_list=long_list.next
         short_list=short_list.next
-        # node_number+=1
+        
 
     if  long_list!=None:
-        # return node_number
         return long_list
     else:
         return None 
- 
+
 
 def printLinkList(head):
     while head != None:
@@ -96,9 +110,8 @@ def printLinkList(head):
         head = head.next
     print()
 
-print(intersection_node(headA, headB))
+print(intersection_node(head_a, head_b).val)
 print("---------------")
-printLinkList (headA)
-printLinkList(headB)
+
 print("---------------")
 print("---------------")
