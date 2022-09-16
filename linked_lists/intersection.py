@@ -11,6 +11,9 @@ def intersection_node(headA, headB):
     """ Will return the node at which the two lists intersect.
         If the two linked lists have no intersection at all, return None.
     """
+
+    
+    # if I have time, go back and do this using an additional data structure to avoid n^2 time complexity
     current_A = headA
     while current_A is not None:
         current_B = headB
