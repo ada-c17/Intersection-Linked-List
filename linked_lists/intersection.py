@@ -12,15 +12,15 @@ def intersection_node(headA, headB):
 
     headA_set = set()
 
-    temp1 = headA
-    while temp1:
-        headA_set.add(temp1)
-        temp1 = temp1.next 
+    listA = headA
+    while listA:
+        headA_set.add(listA)
+        listA = listA.next 
     
-    temp2 = headB
-    while temp2:
-        if temp2 in headA_set:
-            return temp2 
-        temp2 = temp2.next
+    listB = headB
+    while listB:
+        if listB in headA_set:
+            return listB 
+        listB = listB.next
     
     return None 
