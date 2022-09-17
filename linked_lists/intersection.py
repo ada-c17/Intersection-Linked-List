@@ -9,21 +9,25 @@ class Node:
 
 def intersection_node(headA, headB):
 
-    current_a = headA
-    current_b = headB
     hash_map = {}
 
-    if not current_a or not current_b:
+    if not headA or not headB:
         return None
 
-    while current_a:
-        hash_map[current_a] = 1
-        current_a = current_a.next
+    while headA:
+        hash_map[headA] = 1
+        tailA = headA
+        headA = headA.next
 
-    while current_b:
-        if current_b in hash_map.keys():
-            return current_b
-        current_b = current_b.next
+    while headB:
+        if headB in hash_map.keys():
+            intersection = headB
+            while headB:
+                tailB = headB
+                headB = headB.next
+            if tailB == tailA:
+                return intersection
+        headB = headB.next
     
     return None
 
