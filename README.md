@@ -9,15 +9,13 @@ For example, the following two linked lists begin to intersect at 5.
 
 `linked_list_b: 1 -> 2 -> 5 -> 6 -> 7` 
 
+There are no cycles anywhere in the linked list structures. 
 
-The following two linked lists do _not_ intersect at all because while the node with value 5 is in the same place, the subsequent nodes are different.
+Assume any intersection includes the tails of each list. For example, the following scenario would _not_ occur because while the node with value 5 is in the same place, the subsequent nodes are different.
 
 `linked_list_a: 3 -> 4 -> 5 -> 6 -> 7`
 
 `linked_list_b: 1 -> 2 -> 5 -> 4 -> 3` 
-
-There are no cycles anywhere in the linked list structures. Assume any intersection includes the tails of each list.
-
 
 The linked lists must retain their original structure after the function returns. 
 
