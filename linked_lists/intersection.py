@@ -14,6 +14,8 @@ def intersection_node(headA, headB):
         Iterate through 1st linked list and add its nodes to set.
         Iterate through 2nd linked list: if node is in set -> return node; otherwise return None
     """
+    if not headA or not headB:
+        return None
 
     currA, currB, valA = headA, headB, set()
 
