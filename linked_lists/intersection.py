@@ -8,7 +8,30 @@ class Node:
 
 
 def intersection_node(headA, headB):
-    """ Will return the node at which the two lists intersect.
-        If the two linked lists have no intersection at all, return None.
-    """
-    pass
+
+    hash_map = {}
+
+    if not headA or not headB:
+        return None
+
+    while headA:
+        hash_map[headA] = 1
+        tailA = headA
+        headA = headA.next
+
+    while headB:
+        if headB in hash_map.keys():
+            intersection = headB
+            while headB:
+                tailB = headB
+                headB = headB.next
+            if tailB == tailA:
+                return intersection
+        headB = headB.next
+    
+    return None
+
+    
+
+
+
