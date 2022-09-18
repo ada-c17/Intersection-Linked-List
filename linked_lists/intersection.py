@@ -1,58 +1,42 @@
 
-
-
 class Node:
     def __init__(self, value):
         self.val = value
         self.next = None
 
+def get_length(current):
+    """
+    Helper function to return length of linked lists.
+    """
+    length = 0
+    while current:
+        length += 1
+        current = current.next
+    return length
 
 def intersection_node(headA, headB):
-    """ Will return the node at which the two lists intersect.
-        If the two linked lists have no intersection at all, return None.
+    """ 
+    Will return the node at which the two lists intersect.
+    If the two linked lists have no intersection at all, return None.
     """
-    if not headA or not headB:
-        return None
+    # Get length of both lists
+    lenA, lenB = get_length(headA), get_length(headB)
     
-    currentA = headA
-    currentB = headB
+    # Set pointer variables to head
+    currentA, currentB = headA, headB
 
-    while currentA.next and currentB.next:
-        print(currentA.val, currentB.val)
+    # Because the linked lists intersect, we assume that if the lists are of different lengths, we can iterate through the difference, which accounts for the "extra" nodes in the beginning. This makes it so that we can compare the rest of the nodes in the two lists without worrying about the lengths.
+    if lenA > lenB:
+        for i in range(abs(lenA-lenB)):
+            currentA = currentA.next
+    else:
+        for i in range(abs(lenA-lenB)):
+            currentB = currentB.next
+
+    # Now we can compare the two linked lists and check for matching nodes. 
+    while currentA and currentB:
         if currentA == currentB:
             return currentA
         currentA = currentA.next
         currentB = currentB.next
-        # print(currentA.val, currentB.val)
     return None
-        
-
-# node_d = Node("D")
-# node_e = Node("E")
-# node_f = Node("F")
-
-# node_x = Node("X")
-# node_y = Node("Y")
-# node_z = Node("Z")
-
-# node_one = Node("1")
-# node_two = Node("2")
-# node_three = Node("3")
-# node_one.next = node_two
-# node_two.next = node_three
-
-# # List A: ["D", "E", "F", "1", "2", "3"]
-# node_d.next = node_e
-# node_e.next = node_f
-# node_f.next = node_one
-
-# # List B: ["X", "Y", "Z", "1", "2", "3"]
-# node_x.next = node_y
-# node_y.next = node_z
-# node_z.next = node_one
-
-# head_a = node_d
-# head_b = node_x
-
-# # Act
-# print(intersection_node(head_a, head_b))
