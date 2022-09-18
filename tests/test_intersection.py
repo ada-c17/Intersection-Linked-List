@@ -63,10 +63,12 @@ def test_will_return_intersection_with_lists_of_differing_lengths():
     head_b = node_x
 
     # Act
-    answer = intersection_node(head_a, head_b)
+    answer = intersection_node(head_a, head_b) # shorter list is second
+    answer2 = intersection_node(head_b, head_a) # check if shorter list comes first
 
     # Assert
     assert answer == node_one
+    assert answer2 == node_one # answer will still be same intersecting node
 
 def test_will_return_none_with_one_empty_list():
     # Arrange
