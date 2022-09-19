@@ -25,6 +25,7 @@ def intersection_node(headA, headB):
     currentB = headB
 
     while currentB:
+        # If currentB is in the set, that's the intersection
         if currentB in nodesA:
             return currentB
         currentB = currentB.next
