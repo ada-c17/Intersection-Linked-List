@@ -1,7 +1,7 @@
 import pytest
 from linked_lists.intersection import *
 
-
+# TEST ONE - PASSED
 def test_will_return_intersection_for_lists_of_same_length():
     # Arrange
     node_d = Node("D")
@@ -37,6 +37,7 @@ def test_will_return_intersection_for_lists_of_same_length():
     # Assert
     assert answer == node_one
 
+# TEST TWO 
 def test_will_return_intersection_with_lists_of_differing_lengths():
     # Arrange
     node_d = Node("D")
@@ -68,6 +69,7 @@ def test_will_return_intersection_with_lists_of_differing_lengths():
     # Assert
     assert answer == node_one
 
+# TEST THREE - PASSED
 def test_will_return_none_with_one_empty_list():
     # Arrange
     node_d = Node("D")
@@ -86,6 +88,7 @@ def test_will_return_none_with_one_empty_list():
     # Assert
     assert answer is None
 
+# TEST FOUR
 def test_will_return_none_when_no_intersection():
     # Arrange
     node_d = Node("D")
@@ -113,6 +116,7 @@ def test_will_return_none_when_no_intersection():
     # Assert
     assert answer is None
 
+# TEST FIVE - PASSED 
 def test_will_return_none_for_two_empty_lists():
     # Arrange
 
@@ -125,7 +129,7 @@ def test_will_return_none_for_two_empty_lists():
     # Assert
     assert answer is None
 
-
+# TEST SIX
 def test_will_return_none_nodes_have_same_value_different_reference():
     #Arrange
     node_d1 = Node("D")
