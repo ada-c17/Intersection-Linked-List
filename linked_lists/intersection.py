@@ -15,16 +15,17 @@ def intersection_node(headA, headB):
     if not headA or not headB:
         return None
     
+    nodesA = set()
     currentA = headA
-    currentB = headB
-    intersect = None
-
-    while currentA:
     
-        if currentA == currentB:
-            intersect = currentA
-        else:
-            currentB = currentB.next
+    while currentA:
+        nodesA.add(currentA)
         currentA = currentA.next
-        
-    return intersect
+    
+    currentB = headB
+
+    while currentB:
+        if currentB in nodesA:
+            return currentB
+        currentB = currentB.next
+    return None
