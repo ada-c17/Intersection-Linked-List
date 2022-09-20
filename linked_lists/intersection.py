@@ -12,12 +12,12 @@ def intersection_node(headA, headB):
         Lists are not necessarily the same length.
         If the two linked lists have no intersection at all, return None.
     """
-    # create intersecting value, default to None
-    inter_node = None
+    # brute force solution?
+    intersection_at = None
     currentA = headA
-    currentB = headB
     # traverse through A
     while currentA:
+        currentB = headB
         # traverse through B
         while currentB:
             # if they match:
@@ -27,39 +27,19 @@ def intersection_node(headA, headB):
                 inner_currentA = currentA
                 inner_currentB = currentB
                 while inner_currentA and inner_currentB:
-                    if inner_currentA == inner_currentB and inter_node is None:
-                        inter_node = inner_currentA
+                    if inner_currentA == inner_currentB and intersection_at is None:
+                        intersection_at = inner_currentA
                         
                     elif inner_currentA != inner_currentB:
-                        inter_node = None
+                        intersection_at = None
                         break
+                    # subsequent nodes match, increment to next node
                     inner_currentA = inner_currentA.next
                     inner_currentB = inner_currentB.next
-                if inter_node:
-                    return inter_node
-            
+                if intersection_at:
+                    return intersection_at
             currentB = currentB.next
         currentA = currentA.next
-        currentB = headB # Restart from B list
-    return inter_node
+    return intersection_at
 
 
-# Solution if lists are the same length
-    # # create intersecting value, default to None
-    # intersect_node = None
-    # currentA = headA
-    # currentB = headB
-    # # while loop: headA and headB are not None
-    # while currentA != None and currentB != None:
-    #     # if values are the same and intersecting is None: reset intersecting
-    #     if currentA == currentB and intersect_node is None:
-    #         intersect_node = currentA
-    #     # else: intersecting = None
-    #     elif currentA != currentB:
-    #         intersect_node = None
-    #     # move up headA and headB position
-    #     currentA = currentA.next
-    #     currentB = currentB.next
-
-    # # return intersecting
-    # return intersect_node
