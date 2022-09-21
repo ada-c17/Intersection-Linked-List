@@ -47,6 +47,9 @@ def intersection_node(headA, headB):
     # List A: ["D", "E", "F", "1", "2", "3"]
     # List B: ["X", "1", "2", "3"]
 
+
+    # need to find the intersection without using a list as I need 
+    # the intersection values to be in order I think
     set_a = set(list_a)
     set_b = set(list_b)
     intersection = set_a.intersection(set_b)
@@ -60,7 +63,7 @@ def intersection_node(headA, headB):
     #         if current.val == item:
     #             return current
     #     current = current.next
-    
+
     currentA = headA
     currentB = headB
     intersect = None
