@@ -46,15 +46,44 @@ def intersection_node(headA, headB):
 
     # List A: ["D", "E", "F", "1", "2", "3"]
     # List B: ["X", "1", "2", "3"]
+
     set_a = set(list_a)
     set_b = set(list_b)
     intersection = set_a.intersection(set_b)
 
-    current = headA
-    while current:
+    if not intersection:
+        return None
+
+    # current = headA
+    # while current:
+    #     for item in intersection:
+    #         if current.val == item:
+    #             return current
+    #     current = current.next
+    
+    currentA = headA
+    currentB = headB
+    intersect = None
+
+    while currentA and currentB:
         for item in intersection:
-            if current.val == item:
-                return current
-        current = current.next
+            if currentA.val == item and currentB.val == item:
+                if currentA == currentB:
+                    if intersect == None:
+                        intersect = currentA
+                    currentA = currentA.next
+                    currentB = currentB.next
+                    break
+            elif currentB.val == item:
+                currentA = currentA.next
+                break
+            elif currentA.val == item:
+                currentB = currentB.next
+                break
+            else:
+                currentA = currentA.next
+                currentB = currentB.next
+                break
+    return intersect 
 
     return None
