@@ -6,15 +6,15 @@ class Node:
         self.val = value
         self.next = None
 
-    def search(self, value):
-        current = self.head
+    # def search(self, value):
+    #     current = self.head
 
-        while current:
-            if current.val == value:
-                return True
-            current = current.next
+    #     while current:
+    #         if current.val == value:
+    #             return True
+    #         current = current.next
         
-        return False
+    #     return False
 
 
 def intersection_node(headA, headB):
@@ -25,21 +25,24 @@ def intersection_node(headA, headB):
     list_b = []
     
     current = headA
-    while current.next != None:
+    while current != None:
         list_a.append(current.val)
         current = current.next
 
     current = headB
-    while current.next != None:
+    while current != None:
         list_b.append(current.val)
         current = current.next
 
-    intersect_node_index = None
-    for i in range(len(list_a)):
-        if list_a[i] == list_b[i]:
-            intersect_node_index = i
-            if list_a[i:] != list_b[i:]:
-                return None
+    if not list_a or not list_b:
+        return None
+
+    # intersect_node_index = None
+    # for i in range(len(list_a)):
+    #     if list_a[i] == list_b[i]:
+    #         intersect_node_index = i
+    #         if list_a[i:] != list_b[i:]:
+    #             return None
 
     # List A: ["D", "E", "F", "1", "2", "3"]
     # List B: ["X", "1", "2", "3"]
@@ -49,14 +52,9 @@ def intersection_node(headA, headB):
 
     current = headA
     while current:
-        if current.val == intersection[0]:
-            return current
+        for item in intersection:
+            if current.val == item:
+                return current
         current = current.next
 
     return None
-    
-    # intersect_node = headA
-    # for j in range(1, intersect_node_index):
-    #     if intersect_node.value !=
-    #     intersect_node = intersect_node.next
-    # return intersect_node
