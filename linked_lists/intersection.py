@@ -28,6 +28,7 @@ def intersection_node(headA, headB):
 
     intersection_list = []
 
+    i = -1
     while list_a[i] == list_b[i] and abs(i)<len(list_a):
         intersection_list.append(list_a[i])
         i -= 1
