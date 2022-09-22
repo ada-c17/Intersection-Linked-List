@@ -11,4 +11,13 @@ def intersection_node(headA, headB):
     """ Will return the node at which the two lists intersect.
         If the two linked lists have no intersection at all, return None.
     """
-    pass
+    visited = set()
+    curA, curB = headA, headB
+    while curA:
+        visited.add(curA)
+        curA = curA.next
+    while curB:
+        if curB in visited:
+            return curB
+        curB = curB.next
+    return None
