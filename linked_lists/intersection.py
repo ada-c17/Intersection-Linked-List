@@ -15,26 +15,48 @@ def intersection_node(headA, headB):
 
     while currentA:
         while currentB.next:
-            if currentB.val == currentA.val:
-                inter = currentB
-                match = check_match(currentA, currentB)
-                if match:  
-                    return inter
-                else: 
-                    return None
+            if currentB == currentA:                
+                return currentB                
             else:
                 currentB = currentB.next
         currentA = currentA.next
         currentB = headB
     return None
 
-def check_match(currentA, currentB):
-    while currentA and currentB:
-        if currentA.next == currentB.next:
-            currentA = currentA.next
-            currentB = currentB.next
-            match= True
-        else:
-            match = False
-            break
-    return match
+# # Arrange
+# node_d = Node("D")
+# node_e = Node("E")
+# node_f = Node("F")
+
+# node_x = Node("X")
+# node_y = Node("Y")
+# node_z = Node("Z")
+
+# node_one = Node("1")
+# node_two = Node("2")
+# node_three = Node("3")
+# node_one.next = node_two
+# node_two.next = node_three
+
+# # List A: ["D", "E", "F", "1", "2", "3"]
+# node_d.next = node_e
+# node_e.next = node_f
+# node_f.next = node_one
+
+# # List B: ["X", "Y", "Z", "1", "2", "3"]
+# node_x.next = node_y
+# node_y.next = node_z
+# node_z.next = node_one
+
+# head_a = node_d
+# head_b = node_x
+
+# # Act
+# answer = intersection_node(head_a, head_b)
+# print(f'Answer: {answer.val}')
+
+# # Assert
+# if answer == node_one:
+#     print('Test passed')
+# else:
+#     print('Test failed')
