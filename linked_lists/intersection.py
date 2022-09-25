@@ -18,11 +18,6 @@ def intersection_node(headA, headB):
         while cur_a != cur_b and cur_b.next:
             cur_b = cur_b.next
         if cur_a == cur_b:
-            intersection = cur_a
-        while cur_a == cur_b and cur_b.next and cur_a.next:
-            cur_a = cur_a.next
-            cur_b = cur_b.next
-        if not cur_a.next and not cur_b.next:
-            return intersection
+            return cur_a
         cur_a = cur_a.next
     return None
