@@ -14,17 +14,18 @@ def intersection_node(headA, headB):
     if headB == None or headA == None:
       return None
 
+    #Append current node to new list
     list_of_nodes = []
     current = headB
     while current != None:
       list_of_nodes.append(current)
       current = current.next
     
+    #Compare nodes from other list to new list to check intersection.
     currentA = headA
     while currentA != None:
       if currentA in list_of_nodes:
         return currentA
       else:
         currentA = currentA.next
-    #loop through listA unknown nodes to see if present in listB. 
     return None
