@@ -15,7 +15,7 @@ def intersection_node(headA, headB):
     if not currentA or not currentB:
         return None
 
-#Nodes will be same place in memory so you don't need to check values.
+#Nodes will be same place in memory so we don't need to check values.
     while currentA != currentB:
         if currentA == None:
             currentA = headB
