@@ -8,7 +8,21 @@ class Node:
 
 
 def intersection_node(headA, headB):
-    """ Will return the node at which the two lists intersect.
-        If the two linked lists have no intersection at all, return None.
-    """
-    pass
+    currentA = headA
+    currentB = headB
+
+    if currentA is None or currentB is None: 
+        return None
+
+    while currentA != currentB:
+        if currentA:
+            currentA = currentA.next 
+        else: 
+            currentA = headB
+        
+        if currentB: 
+            currentB = currentB.next
+        else: 
+            currentB = headA
+
+    return currentA
