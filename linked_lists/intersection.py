@@ -11,4 +11,17 @@ def intersection_node(headA, headB):
     """ Will return the node at which the two lists intersect.
         If the two linked lists have no intersection at all, return None.
     """
-    pass
+    x = headA
+    y = headB
+
+    while x != y:
+        if x is None:
+            x = headB
+        else:
+            x = x.next
+        
+        if y is None:
+            y = headA
+        else:
+            y = y.next
+    return x
