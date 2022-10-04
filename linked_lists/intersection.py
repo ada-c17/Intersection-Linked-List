@@ -1,6 +1,4 @@
 
-
-
 class Node:
     def __init__(self, value):
         self.val = value
@@ -8,7 +6,19 @@ class Node:
 
 
 def intersection_node(headA, headB):
-    """ Will return the node at which the two lists intersect.
-        If the two linked lists have no intersection at all, return None.
-    """
-    pass
+ 
+    setA = set()
+    currA = headA
+    currB = headB
+
+    while currA:
+        setA.add(currA)
+        currA = currA.next
+
+    while currB:
+        if currB in setA:
+            return currB
+        else:
+           currB = currB.next
+
+    return None 
