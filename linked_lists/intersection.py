@@ -1,6 +1,3 @@
-
-
-
 class Node:
     def __init__(self, value):
         self.val = value
@@ -15,5 +12,4 @@ def intersection_node(headA, headB):
                 return headA
             tempB = tempB.next
         headA = headA.next
-            
-    return None
+
