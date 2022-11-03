@@ -7,7 +7,7 @@ class Node:
         self.next = None
 
 
-    def intersection(headA, headB):
+    def intersection_node(headA, headB):
      
         current_headA  =  headA 
         while current_headA is not None:
