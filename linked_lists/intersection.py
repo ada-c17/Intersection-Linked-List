@@ -1,46 +1,22 @@
 
-
-
 class Node:
-    def __init__(self, value):
-        self.val = value
-        self.next = None
+    def __init__(self, value, next_node=None):
+        self.value = value
+        self.next = next_node
 
-# def intersection_node(headA, headB):
+
+def intersection_node(headA, headB):
     """ Will return the node at which the two lists intersect.
         If the two linked lists have no intersection at all, return None.
     """
-def find_intersection(headA, headB):
-  len_lla = 0
-  lla_current = headA
-  while lla_current:
-    len_lla += 1
-    lla_current = lla_current.next
-  
-    len_llb = 0
-    llb_current = headB
-    while llb_current:
-      len_llb += 1
-      llb_current = llb_current.next
+    if headA is None or headB is None:
+        return None
 
-#traverse the list by prioritizing the longer of the two list options
-  lla_current = headA
-  llb_current = headB
+# Use current values for the pointers:
+    pointer_a, pointer_b = headA, headB
+# Use a while loop that
+    while pointer_a != pointer_b:
+        pointer_a = headB if pointer_a is None else pointer_a.next
+        pointer_b = headA if pointer_b is None else pointer_b.next
 
-  if len_lla > len_llb:
-    for i in range(len_lla - len_llb):
-      lla_current = lla_current.next
-  else:
-    for i in range(len_llb - len_lla):
-      llb_current = llb_current.next
-
-  while lla_current and llb_current:
-    if lla_current == llb_current:
-      return lla_current
-
-    lla_current == lla_current.next
-    llb_current == llb_current.next
-    
-  return None
-
-
+    return pointer_a
