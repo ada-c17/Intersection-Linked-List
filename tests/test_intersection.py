@@ -1,5 +1,7 @@
 import pytest
-from linked_lists.intersection import *
+# from linked_lists.intersection import 
+from linked_lists.intersection import Node
+from linked_lists.intersection import intersection_node
 
 
 def test_will_return_intersection_for_lists_of_same_length():
